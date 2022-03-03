@@ -2,6 +2,60 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+class AnalogClock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      date: new Date(),
+      r: props.radius | 80,
+    };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(() => {
+      this.updateClock();
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  updateClock() {
+    this.setState({
+      date: new Date(),
+    });
+  }
+
+  render() {
+    return (
+      <svg viewBox="-85 -85 170 170" width='170' height='170'>
+          <circle cx="0" cy="0" r="80" stroke="black" fill="transparent" stroke-width="4" />
+          <line x1={0} y1={80} x2={0} y2={70} stroke="black" stroke-width="3" />
+          <line x1={0} y1={-80} x2={0} y2={-70} stroke="black" stroke-width="3" />
+          <line x1={80} y1={0} x2={70} y2={0} stroke="black" stroke-width="3" />
+          <line x1={-80} y1={0} x2={-70} y2={0} stroke="black" stroke-width="3" />
+
+          <line x1={80 * Math.sin(Math.PI / 6)} y1={80 * Math.cos(Math.PI / 6)} x2={75 * Math.sin(Math.PI / 6)} y2={75 * Math.cos(Math.PI / 6)} stroke="black" stroke-width="2" />
+          <line x1={80 * Math.sin(Math.PI / 3)} y1={80 * Math.cos(Math.PI / 3)} x2={75 * Math.sin(Math.PI / 3)} y2={75 * Math.cos(Math.PI / 3)} stroke="black" stroke-width="2" />
+          <line x1={80 * Math.sin(Math.PI * 4 / 3)} y1={80 * Math.cos(Math.PI * 4 / 3)} x2={75 * Math.sin(Math.PI * 4 / 3)} y2={75 * Math.cos(Math.PI * 4 / 3)} stroke="black" stroke-width="2" />
+          <line x1={80 * Math.sin(Math.PI * 5 / 6)} y1={80 * Math.cos(Math.PI * 5 / 6)} x2={75 * Math.sin(Math.PI * 5 / 6)} y2={75 * Math.cos(Math.PI * 5 / 6)} stroke="black" stroke-width="2" />
+
+          <line x1={-80 * Math.sin(Math.PI / 6)} y1={80 * Math.cos(Math.PI / 6)} x2={-75 * Math.sin(Math.PI / 6)} y2={75 * Math.cos(Math.PI / 6)} stroke="black" stroke-width="2" />
+          <line x1={-80 * Math.sin(Math.PI / 3)} y1={80 * Math.cos(Math.PI / 3)} x2={-75 * Math.sin(Math.PI / 3)} y2={75 * Math.cos(Math.PI / 3)} stroke="black" stroke-width="2" />
+          <line x1={-80 * Math.sin(Math.PI * 4 / 3)} y1={80 * Math.cos(Math.PI * 4 / 3)} x2={-75 * Math.sin(Math.PI * 4 / 3)} y2={75 * Math.cos(Math.PI * 4 / 3)} stroke="black" stroke-width="2" />
+          <line x1={-80 * Math.sin(Math.PI * 5 / 6)} y1={80 * Math.cos(Math.PI * 5 / 6)} x2={-75 * Math.sin(Math.PI * 5 / 6)} y2={75 * Math.cos(Math.PI * 5 / 6)} stroke="black" stroke-width="2" />
+
+          <line x1={0} y1={0} x2={0} y2={-60} stroke-width="2" transform={`rotate(${(this.state.date.getSeconds() - 1) * 6})`} strokeLinecap="round" stroke="red" />
+          <line x1={0} y1={0} x2={0} y2={-65} stroke="black" stroke-width="3" transform={`rotate(${(this.state.date.getMinutes()) * 6})`} strokeLinecap="round" />
+          <line x1={0} y1={0} x2={0} y2={-40} stroke="black" stroke-width="4" transform={`rotate(${(this.state.date.getHours() % 12) * 30 + (this.state.date.getMinutes() / 2)})`} strokeLinecap="round" />
+
+          <circle cx="0" cy="0" r="2" stroke="black" fill="transparent" />
+        </svg>
+    );
+  }
+}
+
 class AggressiveClock extends React.Component {
   // state is similar to props, but it is private and managed by only the component.
   constructor(props) {
@@ -9,7 +63,6 @@ class AggressiveClock extends React.Component {
     this.state = { 
       date: new Date(),
       time: '',
-      unusedTestingValue: NaN
     };
   }
 
@@ -38,7 +91,7 @@ class AggressiveClock extends React.Component {
     const second = this.formatTwoDigits(this.state.date.getSeconds());
     this.setState({
       date: new Date(),
-      time: `${hour}:${minute}:${second}`
+      time: `${hour}:${minute}:${second}`,
     });
   }
 
@@ -47,29 +100,7 @@ class AggressiveClock extends React.Component {
     //  fixed by making the #root a grid parent.
     return (
       <div class='clock'>
-        <svg viewBox="-85 -85 170 170" width='170' height='170'>
-          <circle cx="0" cy="0" r="80" stroke="black" fill="transparent" stroke-width="4" />
-          <line x1={0} y1={80} x2={0} y2={70} stroke="black" stroke-width="3" />
-          <line x1={0} y1={-80} x2={0} y2={-70} stroke="black" stroke-width="3" />
-          <line x1={80} y1={0} x2={70} y2={0} stroke="black" stroke-width="3" />
-          <line x1={-80} y1={0} x2={-70} y2={0} stroke="black" stroke-width="3" />
-
-          <line x1={80 * Math.sin(Math.PI / 6)} y1={80 * Math.cos(Math.PI / 6)} x2={75 * Math.sin(Math.PI / 6)} y2={75 * Math.cos(Math.PI / 6)} stroke="black" stroke-width="2" />
-          <line x1={80 * Math.sin(Math.PI / 3)} y1={80 * Math.cos(Math.PI / 3)} x2={75 * Math.sin(Math.PI / 3)} y2={75 * Math.cos(Math.PI / 3)} stroke="black" stroke-width="2" />
-          <line x1={80 * Math.sin(Math.PI * 4 / 3)} y1={80 * Math.cos(Math.PI * 4 / 3)} x2={75 * Math.sin(Math.PI * 4 / 3)} y2={75 * Math.cos(Math.PI * 4 / 3)} stroke="black" stroke-width="2" />
-          <line x1={80 * Math.sin(Math.PI * 5 / 6)} y1={80 * Math.cos(Math.PI * 5 / 6)} x2={75 * Math.sin(Math.PI * 5 / 6)} y2={75 * Math.cos(Math.PI * 5 / 6)} stroke="black" stroke-width="2" />
-
-          <line x1={-80 * Math.sin(Math.PI / 6)} y1={80 * Math.cos(Math.PI / 6)} x2={-75 * Math.sin(Math.PI / 6)} y2={75 * Math.cos(Math.PI / 6)} stroke="black" stroke-width="2" />
-          <line x1={-80 * Math.sin(Math.PI / 3)} y1={80 * Math.cos(Math.PI / 3)} x2={-75 * Math.sin(Math.PI / 3)} y2={75 * Math.cos(Math.PI / 3)} stroke="black" stroke-width="2" />
-          <line x1={-80 * Math.sin(Math.PI * 4 / 3)} y1={80 * Math.cos(Math.PI * 4 / 3)} x2={-75 * Math.sin(Math.PI * 4 / 3)} y2={75 * Math.cos(Math.PI * 4 / 3)} stroke="black" stroke-width="2" />
-          <line x1={-80 * Math.sin(Math.PI * 5 / 6)} y1={80 * Math.cos(Math.PI * 5 / 6)} x2={-75 * Math.sin(Math.PI * 5 / 6)} y2={75 * Math.cos(Math.PI * 5 / 6)} stroke="black" stroke-width="2" />
-
-          <line x1={0} y1={0} x2={0} y2={-60} stroke-width="2" transform={`rotate(${(this.state.date.getSeconds() - 1) * 6})`} strokeLinecap="round" stroke="red" />
-          <line x1={0} y1={0} x2={0} y2={-65} stroke="black" stroke-width="3" transform={`rotate(${(this.state.date.getMinutes()) * 6})`} strokeLinecap="round" />
-          <line x1={0} y1={0} x2={0} y2={-40} stroke="black" stroke-width="4" transform={`rotate(${(this.state.date.getHours() % 12) * 30 + (this.state.date.getMinutes() / 2)})`} strokeLinecap="round" />
-
-          <circle cx="0" cy="0" r="2" stroke="black" fill="transparent" />
-        </svg>
+        <AnalogClock r='90' />
         <h3>{this.state.time}</h3>
       </div>
     );
