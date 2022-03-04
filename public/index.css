@@ -49,3 +49,9 @@ body {
   margin: .3rem;
   letter-spacing: .2rem;
 }
+
+.top-right {
+  grid-area: top-right;
+  display: flex;
+  flex-direction: column;
+}
