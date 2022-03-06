@@ -1,10 +1,17 @@
 {
   "files": {
-    "main.js": "/react-components/static/js/main.66cf8a71.js",
+    "main.css": "/react-components/static/css/main.3d9fbf59.css",
+    "main.js": "/react-components/static/js/main.7966090e.js",
+    "static/media/snow_profile_1.jpg": "/react-components/static/media/snow_profile_1.9b81943bce2a5870684b.jpg",
+    "static/media/linkedin_white_background.png": "/react-components/static/media/linkedin_white_background.a40c93077a408e788a49.png",
+    "static/media/instagram.png": "/react-components/static/media/instagram.bc603acad2a8cb3bd098.png",
+    "static/media/github.png": "/react-components/static/media/github.05f6c17b8cd04c28456f.png",
     "index.html": "/react-components/index.html",
-    "main.66cf8a71.js.map": "/react-components/static/js/main.66cf8a71.js.map"
+    "main.3d9fbf59.css.map": "/react-components/static/css/main.3d9fbf59.css.map",
+    "main.7966090e.js.map": "/react-components/static/js/main.7966090e.js.map"
   },
   "entrypoints": [
-    "static/js/main.66cf8a71.js"
+    "static/css/main.3d9fbf59.css",
+    "static/js/main.7966090e.js"
   ]
 }
