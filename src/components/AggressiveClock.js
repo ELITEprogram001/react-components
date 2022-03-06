@@ -28,7 +28,7 @@ class AnalogClock extends React.Component {
   render() {
     return (
       <svg viewBox="-85 -85 170 170" width='170' height='170'>
-          <circle cx="0" cy="0" r="80" stroke="black" fill="transparent" strokeWidth="4" />
+          <circle cx="0" cy="0" r="80" stroke="black" fill="white" strokeWidth="4" />
           <line x1={0} y1={80} x2={0} y2={70} stroke="black" strokeWidth="3" />
           <line x1={0} y1={-80} x2={0} y2={-70} stroke="black" strokeWidth="3" />
           <line x1={80} y1={0} x2={70} y2={0} stroke="black" strokeWidth="3" />

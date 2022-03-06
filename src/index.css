@@ -1,6 +1,8 @@
 :root {
   font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
+  color: #ddd;
+  /* Nice color: rgb(81, 95, 107) */
 }
 
 body {
@@ -15,15 +17,14 @@ body {
 #root {
   width: 100%;
   height: 100%;
-  background-color: #ddd; 
+  background-color: rgb(47, 53, 59); 
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
   grid-template-areas: 
-    "top-left clock top-right"
-    "bot-left bot-middle bot-right";
+    "left clock top-right"
+    "left bot-middle bot-right";
   gap: 1rem;
-  border: 3px dashed black;
   justify-items: center;
   align-items: center;
   overflow: hidden;
@@ -54,4 +55,8 @@ body {
   grid-area: top-right;
   display: flex;
   flex-direction: column;
+}
+
+.business-card {
+  grid-area: left;
 }

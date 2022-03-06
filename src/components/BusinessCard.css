@@ -1,0 +1,110 @@
+.content {
+  padding: 1rem 1.5rem 2rem;
+  height: 100%;
+}
+
+.profile-img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.business-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  background: rgb(28, 31, 42);
+  font-family: 'Lato', sans-serif;
+  box-shadow: 10px 8px 60px -20px black;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #eee;
+  letter-spacing: .07em;
+  margin: .3rem 0 0 0;
+}
+
+.contact-profession {
+  color: rgb(0, 202, 0);
+  font-weight: 300;
+  font-size: .9rem;
+  margin: .3rem 0;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+.link {
+  width: 75px;
+  text-decoration: none;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ddd;
+  border-radius: 6px;
+  font-weight: bold;
+  padding: .4rem 1rem;
+}
+
+.link > img {
+  width: 1rem;
+  height: 1rem;
+  padding-right: 8px;
+}
+
+.linkedin {
+  color: #ddd;
+  background: #0073b1;
+  padding-left: 1rem;
+}
+
+.info {
+  color: #eee;
+  margin: 1.2rem 0;
+}
+
+.info > h4 {
+  margin: 0;
+  letter-spacing: .1rem;
+}
+
+.info > p {
+  color: #bbb;
+  margin: .3rem 0;
+  font-weight: 300;
+  font-size: .9rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.interest-info {
+  margin-top: 2rem;
+}
+
+.social-footer {
+  width: 100%;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background: rgb(20, 22, 29);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-icon > img {
+  width: 30px;
+  filter: invert(.7);
+  margin: 1rem 1rem;
+}
